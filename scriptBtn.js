@@ -77,6 +77,7 @@ clearBtn.addEventListener("click", function() {
 });
 
 const game = () => {
+  
   const playerSelection = selectedBtn;
   const computerSelection = getComputerChoice();
 
@@ -92,11 +93,28 @@ const game = () => {
   let tallyLosses = parseInt(localStorage.getItem("tallyLosses")) || 0;
 
   if (result.includes("Win")) {
-    tallyWins++;
+    tallyWins++; 
   } else if (result.includes("Lose")) {
     tallyLosses++;
   }
 
+    const resetAtFive = () => {
+    
+    if (tallyWins === 5) {
+      console.log("you win! gameover")
+      clearTally();
+  refreshDOM();
+    outputRes.value
+    } else {
+      console.log("you lose! gameover")
+      clearTally();
+  refreshDOM();
+    }
+  } 
+  
+  if (tallyWins || tallyLosses === 5) {
+    resetAtFive()
+  }
   outputRes.textContent = `${result}`;
 
   updateTally(tallyWins, tallyLosses);
