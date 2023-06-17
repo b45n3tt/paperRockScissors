@@ -1,12 +1,12 @@
-const clearBtn = document.getElementById("clearBtn-el");
-const rockBtn = document.getElementById("rock-el");
-const paperBtn = document.getElementById("paper-el");
-const scissorsBtn = document.getElementById("scissors-el");
-const outputPl = document.getElementById("output-pl");
-const outputCom = document.getElementById("output-com");
-const outputRes = document.getElementById("output-result");
-const outputW = document.getElementById("output-wins");
-const outputL = document.getElementById("output-losses");
+const clearBtn = document.querySelector('#clearBtn-el');
+const rockBtn = document.querySelector('#rock-el');
+const paperBtn = document.querySelector ('#paper-el');
+const scissorsBtn = document.querySelector ('#scissors-el');
+const outputPl = document.querySelector('#output-pl');
+const outputCom = document.querySelector('#output-com');
+const outputRes = document.querySelector('#output-result');
+const outputW = document.querySelector('#output-wins');
+const outputL = document.querySelector('#output-losses');
 
 let selectedBtn = "";
 let gameOver = false;
@@ -14,6 +14,7 @@ let gameOver = false;
 rockBtn.addEventListener("click", function() {
   if (!gameOver) {
     selectedBtn = "rock";
+    console.log("rock")
     game();
   }
 });
@@ -100,10 +101,16 @@ const disableButtons = () => {
   scissorsBtn.disabled = true;
 };
 
-const resetAtFive = () => {
+const gameOverWin = () => {
   gameOver = true;
   disableButtons(); // Disable game buttons
-  outputRes.textContent = "Game Over!";
+  outputRes.textContent = "Game Over! You Win!";
+};
+
+const gameOverLose = () => {
+  gameOver = true;
+  disableButtons(); // Disable game buttons
+  outputRes.textContent = "Game Over! You Lose!";
 };
 
 const game = () => {
@@ -127,9 +134,11 @@ const game = () => {
     tallyLosses++;
   }
 
-  if (tallyWins === 5 || tallyLosses === 5) {
-    resetAtFive();
-  } else {
+  if (tallyWins === 5)  {
+    gameOverWin();
+  } else if (tallyLosses === 5) {
+    gameOverLose()
+  }  else {
     outputRes.textContent = `${result}`;
   }
 
