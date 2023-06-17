@@ -99,6 +99,10 @@ const disableButtons = () => {
   rockBtn.disabled = true;
   paperBtn.disabled = true;
   scissorsBtn.disabled = true;
+  rockBtn.classList.add("muted");
+  paperBtn.classList.add("muted");
+  scissorsBtn.classList.add("muted");
+  clearBtn.classList.add("goGreen");
 };
 
 const gameOverWin = () => {

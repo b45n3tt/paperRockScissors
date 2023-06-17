@@ -1,0 +1,66 @@
+*{
+    font-family:   monospace;
+}
+body {
+    border-style: border-box;
+}
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    color: #f5f0f0;
+    font-size: larger;
+    width: 100px;
+    height: 100px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.banner {
+    border: 2px double rgb(229, 104, 104);
+    background-color: rgb(231, 248, 120);
+    margin: 20px 50px;
+    padding: 50px;
+    font-weight: bold;
+    display: flex;
+    height: 150px;
+    justify-content: center;
+}
+
+.players {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 100px;
+    justify-content: center;
+}
+
+.winsLosses {
+    text-align: end;
+    margin-right: 50px;
+}
+
+.top {
+    background-color: rgb(225, 161, 24);
+    display: flex;
+    margin: 50px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.muted {
+    background-color: gray;
+    color: lightgray;
+    /* Add any other muted styles you want */
+  }
+
+  .goGreen {
+    background-color: greenyellow;
+    color: blue;
+  }
